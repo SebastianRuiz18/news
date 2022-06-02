@@ -2,6 +2,7 @@
 
 from django.db import migrations, models
 
+
 def populate_usertype(apps, schemaeditor):
     user_types = {
         "reader": "A subscriber to the newspaper",
@@ -12,6 +13,7 @@ def populate_usertype(apps, schemaeditor):
     for name, desc in user_types.items():
         user_type = UserType(name=name, description=desc)
         user_type.save()
+
 
 class Migration(migrations.Migration):
 
@@ -29,3 +31,4 @@ class Migration(migrations.Migration):
         ),
         migrations.RunPython(populate_usertype)
     ]
+    
